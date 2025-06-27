@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const Flight = require('../models/flight'); // Assuming flight.js is in the same directory
+const Flight = require('../models/flight'); 
 
 // search flights
 router.get('/search', async (req, res) => {
@@ -40,3 +40,4 @@ router.get('/search', async (req, res) => {
         res.status(500).json({ message: 'Server error' });
     }
     });
+    module.exports = router;

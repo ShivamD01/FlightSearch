@@ -7,13 +7,12 @@ const app = express();
 app.use(express.json());
 
 // for froontend
-const cors = require('cors');
-app.use(cors());
+// const cors = require('cors');
+// app.use(cors());
 
 //MongoDB connection
-mongoose.connect(process.env.MONGO_URI)
-  .then(() => console.log('MongoDB connected'))
-  .catch(err => console.error('MongoDB connection error:', err));
+connectDB = require('./config/db');
+connectDB(); // connect to MongoDB
 
 // routes
 
@@ -35,4 +34,7 @@ app.use('/api', seedRoute);
 
 const bookFlightRoute = require('./routes/bookFlight');
 app.use('/api/book', bookFlightRoute);
+
+const authRoute = require('./routes/auth');
+app.use('/api/auth', authRoute);
 
