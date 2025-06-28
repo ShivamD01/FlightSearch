@@ -14,7 +14,7 @@ const bookingSchema = new mongoose.Schema({
         type: String,
         required: true,
         match: /.+\@.+\..+/,
-        unique: true
+        
     },
     seatCount: {
         type: Number,

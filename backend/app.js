@@ -6,9 +6,9 @@ require('dotenv').config(); // for reading .env values
 const app = express();
 app.use(express.json());
 
-// for froontend
-// const cors = require('cors');
-// app.use(cors());
+//for froontend
+const cors = require('cors');
+app.use(cors());
 
 //MongoDB connection
 connectDB = require('./config/db');
@@ -37,4 +37,6 @@ app.use('/api/book', bookFlightRoute);
 
 const authRoute = require('./routes/auth');
 app.use('/api/auth', authRoute);
+
+app.use('/api/admin', require('./routes/admin'));
 
